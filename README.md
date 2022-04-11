@@ -1,4 +1,4 @@
-# Outreachy: Moja Global
+# Outreachy-Internship
 
 ## Setup:
 
@@ -17,6 +17,11 @@ Also please do:
 ```bash
 conda install geoplot -c conda-forge
 ```
+
+## Automation
+
+1. Just run the `script.py` file.
+2. A `result.json` will be generated if everything works well. The plots will be saved to your folder as well! :)
 
 ## Objective
 
