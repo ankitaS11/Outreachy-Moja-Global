@@ -4,3 +4,4 @@ pandas
 geojson
 shapely
 geopandas
+rtree

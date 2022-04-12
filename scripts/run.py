@@ -4,7 +4,8 @@ Author: Ankita Sharma (https://www.github.com/ankitaS11)
 ## What does this script do?
 
 1. Automates the process of finding "the most common" climate/soil/ecological zone type
-for the given forest type.
+for the given forest type. The "most common" type would be the label that occupies
+"majority" of the region for the given forest type.
 2. Saves the visualizations in the respective files, namely: "climate.png", "soil_cover.png"
 and "ecological_zone.png".
 3. Saves the output to a JSON File (result.json).
@@ -26,6 +27,7 @@ import Datasets
 # Unused for now, but we can use later
 # from cfg import countries_dict
 
+# Example: For INDIA
 # json_paths = {
 #     "COUNTRY": "https://datasets.mojaglobal.workers.dev/0:/Administrative/Boundaries/Level2%20by%20Country/IND/IND_AL2_India.json",
 #     "COUNTRY_GEZ": "https://datasets.mojaglobal.workers.dev/0:/Administrative/Boundaries/Level2%20by%20Country/IND/IND_AL2_India_GEZ.json",
@@ -35,6 +37,7 @@ import Datasets
 # }
 
 # Only COUNTRY and COUNTRY_GEZ urls need to be changed
+# Example: For AUSTRALIA
 json_paths = {
     "COUNTRY": "https://datasets.mojaglobal.workers.dev/0:/Administrative/Boundaries/Level2%20by%20Country/AUS/AUS_AL2_Australia.json",
     "COUNTRY_GEZ": "https://datasets.mojaglobal.workers.dev/0:/Administrative/Boundaries/Level2%20by%20Country/AUS/AUS_AL2_Australia_GEZ.json",
@@ -82,6 +85,7 @@ for key, admin_path in json_paths.items():
     ds.plot(df_reference=df_reference, show=False, save_output=True)
 
     c = Counter([x for x in datasets[key][1][label]])
+    # Get the label/category which occupies "most of the region" for the given forest type
     most_common_key = c.most_common()[0][0]
     result[key] = most_common_key
 
